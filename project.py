@@ -11,5 +11,11 @@ iris_df = pd.read_csv(f"{iris_dir}\\iris.data", names = ["sepal_length", "sepal_
 # Open a file called iris_summary.txt, creating it if necessary, in write mode. 
 with open(f"{iris_dir}\\iris_summary.txt", "w") as file:  
     file.write("Iris Dataset Summary\n\n") # Write a title to the text file. 
+
     file.write("First five rows of data:\n\n") 
     file.write(iris_df.head().to_string()) # Write iris_df head to file. 
+    file.write("\n\n") # Add empty lines. 
+
+    file.write("Summary statistics of numerical variables:\n\n")
+    file.write(iris_df.describe().to_string())
+    file.write("\n\n") # Add empty lines. 
