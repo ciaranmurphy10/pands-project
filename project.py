@@ -1,4 +1,6 @@
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # Determine a directory to use for reading and writing text. 
 # Will need add functionality later for other users to run this file. 
@@ -19,3 +21,7 @@ with open(f"{iris_dir}\\iris_summary.txt", "w") as file:
     file.write("Summary statistics of numerical variables:\n\n")
     file.write(iris_df.describe().to_string())
     file.write("\n\n") # Add empty lines. 
+
+sns.pairplot(iris_df) # Create a scatter plot matrix using Seaborn's pairplot function. 
+plt.savefig(f"{iris_dir}\\iris_pair_plot.png") # Save the plot to a png file. 
+
