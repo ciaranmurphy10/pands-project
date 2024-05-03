@@ -34,7 +34,7 @@ def custom_hist(variable, output_dir, number_of_bins = 30, bin_colour = "lightst
     This function creates a custom styled histogram and outputs it to a png file.  
 
     Args:
-        variable (str): The numberical variable you would like to use for your histogram. 
+        variable (str): The numerical variable you would like to use for your histogram. 
         output_dir (str): The directory to save the histogram png to. 
         number_of_bins (int): Number of bins you would like in your histogram. The default is 30. 
         bin_colour (str): The colour you would like the histogram bins to be. The default is lightsteelblue. 
@@ -52,10 +52,19 @@ def custom_hist(variable, output_dir, number_of_bins = 30, bin_colour = "lightst
                  ax = ax # Specify that the histogram is to be drawn on the ax that we already created. 
                  )
     
-    # Remove spaces and use title case of variable name for the plot title.
+    # Remove spaces and use title case of variable name for the plot title and x-axis label. 
     ax.set_title(f"{variable.replace("_", " ").title()} Histogram")
+    ax.set_xlabel(f"{variable.replace("_", " ").title()}")
+
+    # Drop top and right spines. 
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)  
 
     # Save the plot to the chosen directory, creating a dynamic name based on the variable. 
     plt.savefig(f"{output_dir}\\{variable}_histogram.png") 
 
     return fig
+
+# Using a for loop and the custom_hist() function, create a histogram of each numerical variable. 
+for i in ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']:
+    custom_hist(i, iris_dir)
