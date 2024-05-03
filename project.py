@@ -29,6 +29,7 @@ sns.pairplot(iris_df) # Create a scatter plot matrix using Seaborn's pairplot fu
 plt.savefig(f"{iris_dir}\\iris_pair_plot.png") # Save the plot to a png file. 
 
 
+# Define a function to create a custom histogram and save it to a png file.
 def custom_hist(variable, output_dir, number_of_bins = 30, bin_colour = "lightsteelblue"):
     """
     This function creates a custom styled histogram and outputs it to a png file.  
@@ -68,3 +69,43 @@ def custom_hist(variable, output_dir, number_of_bins = 30, bin_colour = "lightst
 # Using a for loop and the custom_hist() function, create a histogram of each numerical variable. 
 for i in ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']:
     custom_hist(i, iris_dir)
+
+
+# Define a function to create a custom scatter plot and save it to a png file.
+def custom_scatter(x_variable, y_variable, output_dir):
+    """
+    This function creates a custom styled scatter plot and outputs it to a png file.  
+
+    Args:
+        x_variable (str): The x-axis variable to use for the scatter plot. 
+        y_variable (str): The y-axis variable to use for the scatter plot. 
+        output_dir (str): The directory to save the scatter plot png to. 
+        
+    Output:
+        matplotlib.figure.Figure: The fig object that we created.
+    """
+
+    # Create the figure and axes.
+    fig, ax = plt.subplots()
+
+    # Create a scatter plot of the chosen variables using the seaborn library.
+    sns.scatterplot(
+        x = x_variable, y = y_variable, # Choose x-axis and y-axis variables.
+        hue = "species_type", # Add a hue based on species type. 
+        data = iris_df, # Use the iris dataset. 
+        ax = ax # Specify that the scatter plot is to be drawn on the ax that we already created.
+    )
+    
+    # Remove spaces and use title case of variable names for the plot title, x-axis label, and y-axis label.
+    ax.set_title(f"{x_variable.replace("_", " ").title()} vs. {y_variable.replace("_", " ").title()} Scatter Plot")
+    ax.set_xlabel(f"{x_variable.replace("_", " ").title()}")
+    ax.set_ylabel(f"{y_variable.replace("_", " ").title()}")
+
+    # Drop the top and right spines. 
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)   
+
+    # Save the plot to the chosen directory, creating a dynamic name based on the variables. 
+    plt.savefig(f"{output_dir}\\{x_variable}_vs_{y_variable}_scatter_plot.png") 
+
+    return fig
