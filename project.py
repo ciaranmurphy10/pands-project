@@ -25,3 +25,16 @@ with open(f"{iris_dir}\\iris_summary.txt", "w") as file:
 sns.pairplot(iris_df) # Create a scatter plot matrix using Seaborn's pairplot function. 
 plt.savefig(f"{iris_dir}\\iris_pair_plot.png") # Save the plot to a png file. 
 
+# Define a custom function to create a custom histogram and save it to a png file.
+def custom_hist(variable, output_dir):
+
+    # Create the figure and axes
+    fig, ax = plt.subplots()
+
+    # Create a histogram of the inputted variable.
+    sns.histplot(iris_df[variable], 
+                 bins = 30, # Divide the histogram into 30 bins. 
+                 ax = ax) # Specify that the histogram is to be drawn on the ax that we already created.
+    
+    # Save the plot to the chosen directory, creating a dynamic name based on the variable. 
+    plt.savefig(f"{output_dir}\\{variable}_histogram.png") 
