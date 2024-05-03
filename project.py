@@ -1,11 +1,24 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import os
 
 # Determine a directory to use for reading and writing text. 
 # Will need add functionality later for other users to run this file. 
 iris_dir = "C:\\Users\\ciara\\Documents\\college\\pands-project"
 
+
+# Create a list of required subdirectories. This can be added to over time as more directories are needed.  
+required_subdirectories = [
+    f"{iris_dir}\\plots\\histograms",
+    f"{iris_dir}\\plots\\pair_plots",
+    f"{iris_dir}\\plots\\scatter_plots",
+]
+
+for directory in required_subdirectories: # Cycle through each element in the list of directories.
+    if not os.path.exists(directory): # If the directory doesn't exist, create the directory. 
+        os.makedirs(directory)
+        
 
 # Although our data file is in .data format, the underlying data is in .csv format. 
 # Use the read_csv() function from the pandas library to import our data into a pandas DataFrame. 
@@ -26,7 +39,7 @@ with open(f"{iris_dir}\\iris_summary.txt", "w") as file:
 
 
 sns.pairplot(iris_df) # Create a scatter plot matrix using Seaborn's pairplot function. 
-plt.savefig(f"{iris_dir}\\iris_pair_plot.png") # Save the plot to a png file. 
+plt.savefig(f"{iris_dir}\\plots\\pair_plots\\iris_pair_plot.png") # Save the plot to a png file. 
 
 
 # Define a function to create a custom histogram and save it to a png file.
@@ -62,7 +75,7 @@ def custom_hist(variable, output_dir, number_of_bins = 30, bin_colour = "lightst
     ax.spines['right'].set_visible(False)  
 
     # Save the plot to the chosen directory, creating a dynamic name based on the variable. 
-    plt.savefig(f"{output_dir}\\{variable}_histogram.png") 
+    plt.savefig(f"{output_dir}\\plots\\histograms\\{variable}_histogram.png") 
 
     return fig
 
@@ -106,6 +119,6 @@ def custom_scatter(x_variable, y_variable, output_dir):
     ax.spines['right'].set_visible(False)   
 
     # Save the plot to the chosen directory, creating a dynamic name based on the variables. 
-    plt.savefig(f"{output_dir}\\{x_variable}_vs_{y_variable}_scatter_plot.png") 
+    plt.savefig(f"{output_dir}\\plots\\scatter_plots\\{x_variable}_vs_{y_variable}_scatter_plot.png") 
 
     return fig
