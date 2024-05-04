@@ -13,6 +13,7 @@ required_subdirectories = [
     f"{iris_dir}\\plots\\histograms",
     f"{iris_dir}\\plots\\pair_plots",
     f"{iris_dir}\\plots\\scatter_plots",
+    f"{iris_dir}\\summary"
 ]
 
 for directory in required_subdirectories: # Cycle through each element in the list of directories.
@@ -26,7 +27,7 @@ iris_df = pd.read_csv(f"{iris_dir}\\iris.data", names = ["sepal_length", "sepal_
 
 
 # Open a file called iris_summary.txt, creating it if necessary, in write mode. 
-with open(f"{iris_dir}\\iris_summary.txt", "w") as file:  
+with open(f"{iris_dir}\\summary\\iris_summary.txt", "w") as file:  
     file.write("Iris Dataset Summary\n\n") # Write a title to the text file. 
 
     file.write("First five rows of data:\n\n") 
