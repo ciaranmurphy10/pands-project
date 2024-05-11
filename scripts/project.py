@@ -30,7 +30,7 @@ iris_df = pd.read_csv(f"{iris_dir}\\iris.data", names = ["sepal_length", "sepal_
 with open(f"{iris_dir}\\summary\\iris_summary.txt", "w") as file:  
     file.write("Iris Dataset Summary\n\n") # Write a title to the text file. 
 
-    file.write("First five rows of data:\n\n") 
+    file.write("First five rows of data:\n\n") # Write a string to the file. 
     file.write(iris_df.head().to_string()) # Write iris_df head to file. 
     file.write("\n\n") # Add empty lines. 
 
@@ -42,6 +42,9 @@ with open(f"{iris_dir}\\summary\\iris_summary.txt", "w") as file:
 sns.pairplot(iris_df) # Create a scatter plot matrix using Seaborn's pairplot function. 
 plt.savefig(f"{iris_dir}\\plots\\pair_plots\\iris_pair_plot.png") # Save the plot to a png file. 
 
+# To create and write histograms to png files for each variable, we could use the same code multiple times. 
+# Alternatively, a more efficient way would be to write a function which creates a custom histogram and outputs it to a png file. 
+# We can then loop the function over each variable to achieve consistent histograms with less code. 
 
 # Define a function to create a custom histogram and save it to a png file.
 def custom_hist(variable, output_dir, number_of_bins = 30, bin_colour = "lightsteelblue"):
