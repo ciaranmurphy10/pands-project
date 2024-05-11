@@ -7,6 +7,8 @@ import os
 # Will need add functionality later for other users to run this file. 
 iris_dir = "C:\\Users\\ciara\\Documents\\college\\pands-project"
 
+# Create a list of numerical variables for use later. 
+numerical_vars = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
 
 # Create a list of required subdirectories. This can be added to over time as more directories are needed.  
 required_subdirectories = [
@@ -23,7 +25,7 @@ for directory in required_subdirectories: # Cycle through each element in the li
 
 # Although our data file is in .data format, the underlying data is in .csv format. 
 # Use the read_csv() function from the pandas library to import our data into a pandas DataFrame. 
-iris_df = pd.read_csv(f"{iris_dir}\\iris.data", names = ["sepal_length", "sepal_width", "petal_length", "petal_width", "species_type"])
+iris_df = pd.read_csv(f"{iris_dir}\\data\\iris.data", names = ["sepal_length", "sepal_width", "petal_length", "petal_width", "species_type"])
 
 
 # Open a file called iris_summary.txt, creating it if necessary, in write mode. 
@@ -84,9 +86,10 @@ def custom_hist(variable, output_dir, number_of_bins = 30, bin_colour = "lightst
     return fig
 
 # Using a for loop and the custom_hist() function, create a histogram of each numerical variable. 
-for i in ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']:
+for i in numerical_vars:
     custom_hist(i, iris_dir)
 
+# We can use the same approach for scatter plots, creating a function and running it with each pair of variables. 
 
 # Define a function to create a custom scatter plot and save it to a png file.
 def custom_scatter(x_variable, y_variable, output_dir):
@@ -126,3 +129,12 @@ def custom_scatter(x_variable, y_variable, output_dir):
     plt.savefig(f"{output_dir}\\plots\\scatter_plots\\{x_variable}_vs_{y_variable}_scatter_plot.png") 
 
     return fig
+
+# In order to run custom_scatter() on each pair of variables, we can create an algorithm using nested for loops. 
+# The algorithm will cycle through each unique unordered pair of elements in a list and run custom_scatter() on them. 
+
+for i in range(0, len(numerical_vars)): # Cycle through a range the length of the list. 
+    a = numerical_vars[i] # Assign the list value at the current index i to the variable a. 
+    for j in range(i + 1, len(numerical_vars)): # Cycle through a range the length of the rest of the list. 
+        b = numerical_vars[j] # Assign the list value at the current index j to the variable a. 
+        custom_scatter(x_variable = a, y_variable = b, output_dir = iris_dir) # Run custom_scatter() on the current values of a and b, and then repeat the for loop again until all unique unordered pairs have been cycled through. 
