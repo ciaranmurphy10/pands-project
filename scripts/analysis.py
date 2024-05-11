@@ -132,6 +132,7 @@ def custom_scatter(x_variable, y_variable, output_dir):
 
 # In order to run custom_scatter() on each pair of variables, we can create an algorithm using nested for loops. 
 # The algorithm will cycle through each unique unordered pair of elements in a list and run custom_scatter() on them. 
+# We will use unordered pairs since ordered pairs will douple the amount of plots without adding any extra utility.
 
 for i in range(0, len(numerical_vars)): # Cycle through a range the length of the list. 
     a = numerical_vars[i] # Assign the list value at the current index i to the variable a. 
