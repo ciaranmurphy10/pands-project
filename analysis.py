@@ -14,6 +14,7 @@ required_subdirectories = [
     f"{iris_dir}\\plots\\histograms",
     f"{iris_dir}\\plots\\pair_plots",
     f"{iris_dir}\\plots\\scatter_plots",
+    f"{iris_dir}\\plots\\kde_plots",
     f"{iris_dir}\\summary"
 ]
 
@@ -26,6 +27,12 @@ for directory in required_subdirectories: # Cycle through each element in the li
 # Use the read_csv() function from the pandas library to import our data into a pandas DataFrame. 
 iris_df = pd.read_csv(f"{iris_dir}\\data\\iris.data", names = ["sepal_length", "sepal_width", "petal_length", "petal_width", "species_type"])
 
+# Define a custom palette dictionary which can be used for adding species hues. 
+custom_palette = {
+    'Iris-setosa': 'salmon',
+    'Iris-versicolor': 'lightskyblue',
+    'Iris-virginica': 'lightgreen'
+}
 
 # Open a file called iris_summary.txt, creating it if necessary, in write mode. 
 with open(f"{iris_dir}\\summary\\iris_summary.txt", "w") as file:  
@@ -44,7 +51,7 @@ with open(f"{iris_dir}\\summary\\iris_summary.txt", "w") as file:
     file.write("\n\n") # Add empty lines. 
 
 
-sns.pairplot(iris_df) # Create a scatter plot matrix using Seaborn's pairplot function. 
+sns.pairplot(iris_df, hue = "species_type", palette = custom_palette) # Create a scatter plot matrix using Seaborn's pairplot function. 
 plt.savefig(f"{iris_dir}\\plots\\pair_plots\\iris_pair_plot.png") # Save the plot to a png file. 
 
 # To create and write histograms to png files for each variable, we could use the same code multiple times. 
@@ -95,7 +102,7 @@ for i in numerical_vars:
 # We can use the same approach for scatter plots, creating a function and running it with each pair of variables. 
 
 # Define a function to create a custom scatter plot and save it to a png file.
-def custom_scatter(x_variable, y_variable, output_dir):
+def custom_scatter(x_variable, y_variable, output_dir, hue = "species_type", palette = custom_palette):
     """
     This function creates a custom styled scatter plot and outputs it to a png file.  
 
@@ -103,6 +110,8 @@ def custom_scatter(x_variable, y_variable, output_dir):
         x_variable (str): The x-axis variable to use for the scatter plot. 
         y_variable (str): The y-axis variable to use for the scatter plot. 
         output_dir (str): The directory to save the scatter plot png to. 
+        hue (str): The dataset variable to use to determine the hue. 
+        palette (dict): The custom colour palette to use for the hues. 
         
     Output:
         matplotlib.figure.Figure: The fig object that we created.
@@ -115,6 +124,7 @@ def custom_scatter(x_variable, y_variable, output_dir):
     sns.scatterplot(
         x = x_variable, y = y_variable, # Choose x-axis and y-axis variables.
         hue = "species_type", # Add a hue based on species type. 
+        palette = custom_palette, # Use the custom palette defined earlier. 
         data = iris_df, # Use the iris dataset. 
         ax = ax # Specify that the scatter plot is to be drawn on the ax that we already created.
     )
@@ -142,3 +152,43 @@ for i in range(0, len(numerical_vars)): # Cycle through a range the length of th
     for j in range(i + 1, len(numerical_vars)): # Cycle through a range the length of the rest of the list. 
         b = numerical_vars[j] # Assign the list value at the current index j to the variable a. 
         custom_scatter(x_variable = a, y_variable = b, output_dir = iris_dir) # Run custom_scatter() on the current values of a and b, and then repeat the for loop again until all unique unordered pairs have been cycled through. 
+
+
+# We can use the same functional approach again to create KDE plots. 
+
+def custom_kde(variable, output_dir, hue = "species_type", palette = custom_palette):
+    """
+    This function creates a custom styled KDE plot and outputs it to a png file.  
+
+    Args:
+        variable (str): The numerical variable you would like to use for your KDE plot. 
+        output_dir (str): The directory to save the KDE plot png to. 
+        hue (str): The dataset variable to use to determine the hue. 
+        palette (dict): The custom colour palette to use for the hues.  
+        
+    Output:
+        matplotlib.figure.Figure: The fig object that we created. 
+    """
+    # Create the figure and axes.
+    fig, ax = plt.subplots()
+
+    # Create a KDE plot of the inputted variable using the seaborn library.
+    sns.kdeplot(data = iris_df, 
+                x = variable, # Choose the variable to use. 
+                hue = "species_type", # Add a hue based on species type. 
+                palette = custom_palette) # Use the custom palette defined earlier. 
+
+    # Remove spaces and use title case of variable name for the plot title and x-axis label. 
+    ax.set_title(f"{variable.replace("_", " ").title()} KDE Plot")
+    ax.set_xlabel(f"{variable.replace("_", " ").title()}")
+
+    # Drop top and right spines. 
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)  
+
+    # Save the plot to the chosen directory, creating a dynamic name based on the variable. 
+    plt.savefig(f"{output_dir}\\plots\\kde_plots\\{variable}_kde_plot.png") 
+
+# Using a for loop and the custom_kde() function, create a KDE plot of each numerical variable. 
+for i in ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']:
+    custom_kde(i, iris_dir)
