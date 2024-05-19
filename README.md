@@ -33,6 +33,14 @@ The measurements collected are:
 * Length of petal 
 * Width of petal
 
+# Summary of Variables
+
+The `summary/iris_summary.txt' contains summary of the variables contained with the data set. From this, we can draw some initial conclusions. 
+
+In general, the lengths of the sepal and petals are greater than their widths, with sepal and petal length means of 5.84cm and 3.76cm and width means of 3.05cm and 1.20cm respectively. Similarly, we can draw from this that sepals and generally longer than petals, although petals have higher standard deviations than sepals despite their shorter mean lengths, with sepal and petal length standard deviations of 0.83cm and 1.76cm and width standard deviations of 0.43cm and 0.76cm respectively.
+
+Looking at the medians and modes, we can see that the sepal and petal lengths have medians of 5.80 and 4.35, the sepal and petal widths have medians of 3.00 and 1.30, the sepal and petal lengths have modes of 5.0 and 1.5 and sepal and petal widths have modes of 3.0 and 0.2. An interesting observation here is that the sepals have medians that are relatively similar to their modes, implying a symmetrical distribution. The petals on the other hand have medians that are quite different from their modes. 
+
 # References
 
 ## General
