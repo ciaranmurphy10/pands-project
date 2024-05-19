@@ -4,8 +4,7 @@ import matplotlib.pyplot as plt
 import os
 
 # Determine a directory to use for reading and writing text. 
-# Will need add functionality later for other users to run this file. 
-iris_dir = ""
+iris_dir = os.path.dirname(__file__)
 
 # Create a list of numerical variables for use later. 
 numerical_vars = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
