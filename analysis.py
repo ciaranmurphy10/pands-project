@@ -46,10 +46,18 @@ with open(f"{iris_dir}\\summary\\iris_summary.txt", "w") as file:
     file.write(iris_df["species_type"].value_counts().to_string()) # Write iris_df species counts to file. 
     file.write("\n\n") # Add empty lines. 
 
-    file.write("Summary statistics of numerical variables:\n\n")
-    file.write(iris_df.describe().to_string())
+    file.write("Summary statistics of numerical variables:\n\n") # Write a string to the file.
+    file.write(iris_df.describe().to_string()) # Write iris_df summary statistics to file. 
     file.write("\n\n") # Add empty lines. 
 
+    file.write("Data set medians:\n\n") # Write a string to the file.
+    file.write(iris_df.median(numeric_only=True).to_string()) # Write iris_df medians to file. 
+    file.write("\n\n") # Add empty lines. 
+
+    file.write("Data set modes:\n\n") # Write a string to the file.
+    file.write(iris_df.mode(numeric_only=True).to_string()) # Write iris_df modes to file. 
+    file.write("\n\n") # Add empty lines. 
+    
 
 sns.pairplot(iris_df, hue = "species_type", palette = custom_palette) # Create a scatter plot matrix using Seaborn's pairplot function. 
 plt.savefig(f"{iris_dir}\\plots\\pair_plots\\iris_pair_plot.png") # Save the plot to a png file. 
