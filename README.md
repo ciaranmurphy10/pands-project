@@ -8,7 +8,7 @@ This repository contains the final project for the Programming and Scripting (23
 
 This project contains an executable Python file with will produce text and image files summarising and visualising the variables of the Iris dataset. 
 
-To run this file, navigate to the `pands-project/scripts` directory and run the following code: 
+To run this file, navigate to the `pands-project` directory and run the following code: 
 
 ``` python 
 python analysis.py
@@ -20,15 +20,27 @@ To install Python, you can download a copy of Python from [Python.org](https://w
 
 # Overview
 
-The Iris dataset 
+The Iris data set is a famous collection of data often used to demonstrate statistical and machine learning concepts. It contains the measurements of fifty samples of three species of Iris flower and was popularised by statistician and biologist Ronald Fischer through his work on linear discriminant analysis, although the data was originally collected by botanist Edgar Anderson in the Gaspé Peninsula. 
+
+The three species of flowers examined in the data set are:
+* Iris setosa 
+* Iris virginica 
+* Iris versicolor
+
+The measurements collected are:
+* Length of sepal
+* Width of sepal
+* Length of petal 
+* Width of petal
 
 # References
 
-## Analysis
+## General
 
 - [https://en.wikipedia.org/wiki/Iris_flower_data_set](https://en.wikipedia.org/wiki/Iris_flower_data_set)
 - [https://www.geeksforgeeks.org/exploratory-data-analysis-on-iris-dataset/](https://www.geeksforgeeks.org/exploratory-data-analysis-on-iris-dataset/)
 - [https://www.kaggle.com/code/lalitharajesh/iris-dataset-exploratory-data-analysis](https://www.kaggle.com/code/lalitharajesh/iris-dataset-exploratory-data-analysis)
+- [https://www.statistics.com/historical-spotlight-iris-dataset/](https://www.statistics.com/historical-spotlight-iris-dataset/)
 ## Code
 
 - [https://realpython.com/python-f-strings/](https://realpython.com/python-f-strings/)
@@ -43,3 +55,6 @@ The Iris dataset
 - [https://www.w3schools.com/python/matplotlib_labels.asp](https://www.w3schools.com/python/matplotlib_labels.asp)
 - [https://www.atlassian.com/data/notebook/how-to-save-a-plot-to-a-file-using-matplotlib](https://www.atlassian.com/data/notebook/how-to-save-a-plot-to-a-file-using-matplotlib)
 - [https://www.geeksforgeeks.org/python-pair-iteration-in-list/](https://www.geeksforgeeks.org/python-pair-iteration-in-list/)
+- [https://seaborn.pydata.org/generated/seaborn.kdeplot.html](https://seaborn.pydata.org/generated/seaborn.kdeplot.html)
+- [https://www.geeksforgeeks.org/seaborn-kdeplot-a-comprehensive-guide/](https://www.geeksforgeeks.org/seaborn-kdeplot-a-comprehensive-guide/)
+- [https://seaborn.pydata.org/tutorial/color_palettes.html](https://seaborn.pydata.org/tutorial/color_palettes.html)
