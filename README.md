@@ -41,6 +41,27 @@ In general, the lengths of the sepal and petals are greater than their widths, w
 
 Looking at the medians and modes, we can see that the sepal and petal lengths have medians of 5.80 and 4.35, the sepal and petal widths have medians of 3.00 and 1.30, the sepal and petal lengths have modes of 5.0 and 1.5 and sepal and petal widths have modes of 3.0 and 0.2. An interesting observation here is that the sepals have medians that are relatively similar to their modes, implying a symmetrical distribution. The petals on the other hand have medians that are quite different from their modes. 
 
+# Visual Analysis
+
+Charts provide a visual way of analysing a data set, and can provide insights that might otherwise be difficult to infer. There are a number of different charts that we can use to represent the variables in the Iris data set. The ones that we will examine are histograms, KDE plots, scatter plots, and a pair plot. 
+
+## Histograms
+
+Histograms are used to display continuous data. Values are grouped into buckets, which are represented on the x-axis, and each occurrence of a value in a particular bucket (range) is represented by a unit on the y-axis. 
+
+We have four continuous variables in our data (sepal_length, sepal_width, petal_length, and petal_width) and we can examine them next to eachother on a 2x2 grid. 
+
+<p align="center">
+  <img src = "./plots/histograms/petal_length_histogram.png" alt = "Petal Length" width="45%" />
+  <img src = "./plots/histograms/sepal_length_histogram.png" alt = "Sepal Length" width="45%" />
+</p>
+<p align="center">
+  <img src="./plots/histograms/petal_width_histogram.png" alt="Petal Width" width="45%" />
+  <img src="./plots/histograms/sepal_width_histogram.png" alt="Sepal Width" width="45%" />
+</p>
+
+From this visual representation, we can confirm our earlier conclusion that the distributions of the sepal lengths and widths are more symmetrical than those of the petals. From looking the petal distributions, it's clear that there is some factor that is responsible for groupings of the data observations. Standard histograms treat all values the same, and while it is possible to add hues to represent multiple dimensions within the data, there are other charts that perform a similar analysis but allow for more effectively visualising multiple dimensions. 
+
 # References
 
 ## General
