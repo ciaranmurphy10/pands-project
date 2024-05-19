@@ -57,7 +57,7 @@ with open(f"{iris_dir}\\summary\\iris_summary.txt", "w") as file:
     file.write("Data set modes:\n\n") # Write a string to the file.
     file.write(iris_df.mode(numeric_only=True).to_string()) # Write iris_df modes to file. 
     file.write("\n\n") # Add empty lines. 
-    
+
 
 sns.pairplot(iris_df, hue = "species_type", palette = custom_palette) # Create a scatter plot matrix using Seaborn's pairplot function. 
 plt.savefig(f"{iris_dir}\\plots\\pair_plots\\iris_pair_plot.png") # Save the plot to a png file. 
@@ -152,14 +152,14 @@ def custom_scatter(x_variable, y_variable, output_dir, hue = "species_type", pal
     return fig
 
 # In order to run custom_scatter() on each pair of variables, we can create an algorithm using nested for loops. 
-# The algorithm will cycle through each unique unordered pair of elements in a list and run custom_scatter() on them. 
-# We will use unordered pairs since ordered pairs will douple the amount of plots without adding any extra utility.
+# The algorithm will cycle through each unique ordered pair of elements in a list and run custom_scatter() on them. 
 
 for i in range(0, len(numerical_vars)): # Cycle through a range the length of the list. 
     a = numerical_vars[i] # Assign the list value at the current index i to the variable a. 
-    for j in range(i + 1, len(numerical_vars)): # Cycle through a range the length of the rest of the list. 
-        b = numerical_vars[j] # Assign the list value at the current index j to the variable a. 
-        custom_scatter(x_variable = a, y_variable = b, output_dir = iris_dir) # Run custom_scatter() on the current values of a and b, and then repeat the for loop again until all unique unordered pairs have been cycled through. 
+    for j in range(0, len(numerical_vars)): # Cycle through a range the length of the list. 
+        if not i == j: # Exclude a variable being paired with itself. 
+            b = numerical_vars[j] # Assign the list value at the current index j to the variable a. 
+            custom_scatter(x_variable = a, y_variable = b, output_dir = iris_dir) # Run custom_scatter() on the current values of a and b, and then repeat the for loop again until all unique ordered pairs have been cycled through. 
 
 
 # We can use the same functional approach again to create KDE plots. 
