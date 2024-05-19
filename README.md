@@ -77,6 +77,39 @@ KDE (Kernel Density Estimation) plots are analogous to histograms in that they r
 
 From this view, we can clearly see how the distribution of lengths and widths is different depending on the species width. If we focus on petal_length, we can see how the Iris-setosa is responsible for the dense grouping of values in the 1-2cm range, and Iris-versicolor and Iris-virginica correspond with the two other peaks. Similar groups of density can be seen in the other measurements which were not as obvious with histograms. 
 
+## Scatter Plots & Pair Plots
+
+Scatter plots visualise the relationship between two numerical variables. Observations are plotted as points on a two dimensional cartesian plane, with one variable represented by the x-axis and another variable represented on the y-axis. A third, categorical variable, can be represented by the colour of each point. 
+
+In our case, we will plot each unordered pair of variables. Since we have six pairs of unordered variables, we could display these plots on a 4x grid, similar to how we displayed 2x2 grids of histograms and KDE plots. 
+
+<p align="center">
+  <img src = "./plots/scatter_plots/petal_length_vs_petal_width_scatter_plot.png" alt = "Petal Length vs Petal Width" width="22%" />
+  <img src = "./plots/scatter_plots/petal_length_vs_sepal_length_scatter_plot.png" alt = "Petal Length vs Sepal Length" width="22%" />
+  <img src = "./plots/scatter_plots/petal_length_vs_sepal_width_scatter_plot.png" alt = "Petal Length vs Sepal Width" width="22%" />
+  <img src = "./plots/scatter_plots/petal_width_vs_petal_length_scatter_plot.png" alt = "Petal Width vs Petal Length" width="22%" />
+</p>
+<p align="center">
+  <img src = "./plots/scatter_plots/petal_width_vs_sepal_length_scatter_plot.png" alt = "Petal Width vs Sepal Length" width="22%" />
+  <img src = "./plots/scatter_plots/petal_width_vs_sepal_width_scatter_plot.png" alt = "Petal Width vs Sepal Width" width="22%" />
+  <img src = "./plots/scatter_plots/sepal_length_vs_petal_length_scatter_plot.png" alt = "Sepal Length vs Petal Length" width="22%" />
+  <img src = "./plots/scatter_plots/sepal_length_vs_petal_width_scatter_plot.png" alt = "Sepal Length vs Petal Width" width="22%" />
+</p>
+<p align="center">
+  <img src = "./plots/scatter_plots/sepal_length_vs_sepal_width_scatter_plot.png" alt = "Sepal Length vs Sepal Width" width="22%" />
+  <img src = "./plots/scatter_plots/sepal_width_vs_petal_length_scatter_plot.png" alt = "Sepal Width vs Petal Length" width="22%" />
+  <img src = "./plots/scatter_plots/sepal_width_vs_petal_width_scatter_plot.png" alt = "Sepal Width vs Petal Width" width="22%" />
+  <img src = "./plots/scatter_plots/sepal_width_vs_sepal_length_scatter_plot.png" alt = "Sepal Width vs Sepal Length" width="22%" />
+</p>
+
+An alternative way to display groups of related scatter plots however is through a pair plot, which plots scatter plots of all pairs of variables on one graph along with their corresponding KDE plots. Each scatter plot and its inverse is displayed symmetrically across the top left to bottom right diagonal. 
+
+<p align="center">
+  <img src = "./plots/pair_plots/iris_pair_plot.png" alt = "Pair Plot" width="90%" />
+</p>
+
+
+
 # References
 
 ## General
@@ -85,6 +118,12 @@ From this view, we can clearly see how the distribution of lengths and widths is
 - [https://www.geeksforgeeks.org/exploratory-data-analysis-on-iris-dataset/](https://www.geeksforgeeks.org/exploratory-data-analysis-on-iris-dataset/)
 - [https://www.kaggle.com/code/lalitharajesh/iris-dataset-exploratory-data-analysis](https://www.kaggle.com/code/lalitharajesh/iris-dataset-exploratory-data-analysis)
 - [https://www.statistics.com/historical-spotlight-iris-dataset/](https://www.statistics.com/historical-spotlight-iris-dataset/)
+- [https://courses.lumenlearning.com/introstats1/chapter/skewness-and-the-mean-median-and-mode](https://courses.lumenlearning.com/introstats1/chapter/skewness-and-the-mean-median-and-mode)
+- [https://statisticsbyjim.com/basics/histograms/](https://statisticsbyjim.com/basics/histograms/)
+- [https://en.wikipedia.org/wiki/Kernel_density_estimation](https://en.wikipedia.org/wiki/Kernel_density_estimation)
+- [https://en.wikipedia.org/wiki/Scatter_plot](https://en.wikipedia.org/wiki/Scatter_plot)
+- [https://www.analyticsvidhya.com/blog/2024/02/pair-plots-in-machine-learning/](https://www.analyticsvidhya.com/blog/2024/02/pair-plots-in-machine-learning/)
+
 ## Code
 
 - [https://realpython.com/python-f-strings/](https://realpython.com/python-f-strings/)
@@ -102,3 +141,4 @@ From this view, we can clearly see how the distribution of lengths and widths is
 - [https://seaborn.pydata.org/generated/seaborn.kdeplot.html](https://seaborn.pydata.org/generated/seaborn.kdeplot.html)
 - [https://www.geeksforgeeks.org/seaborn-kdeplot-a-comprehensive-guide/](https://www.geeksforgeeks.org/seaborn-kdeplot-a-comprehensive-guide/)
 - [https://seaborn.pydata.org/tutorial/color_palettes.html](https://seaborn.pydata.org/tutorial/color_palettes.html)
+- [https://seaborn.pydata.org/generated/seaborn.kdeplot.html](https://seaborn.pydata.org/generated/seaborn.kdeplot.html)
