@@ -28,3 +28,15 @@ min        4.300000     2.000000      1.000000     0.100000
 75%        6.400000     3.300000      5.100000     1.800000
 max        7.900000     4.400000      6.900000     2.500000
 
+Data set medians:
+
+sepal_length    5.80
+sepal_width     3.00
+petal_length    4.35
+petal_width     1.30
+
+Data set modes:
+
+   sepal_length  sepal_width  petal_length  petal_width
+0           5.0          3.0           1.5          0.2
+
