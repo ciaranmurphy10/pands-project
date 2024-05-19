@@ -5,7 +5,7 @@ import os
 
 # Determine a directory to use for reading and writing text. 
 # Will need add functionality later for other users to run this file. 
-iris_dir = "C:\\Users\\ciara\\Documents\\college\\pands-project"
+iris_dir = ""
 
 # Create a list of numerical variables for use later. 
 numerical_vars = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
@@ -34,6 +34,10 @@ with open(f"{iris_dir}\\summary\\iris_summary.txt", "w") as file:
 
     file.write("First five rows of data:\n\n") # Write a string to the file. 
     file.write(iris_df.head().to_string()) # Write iris_df head to file. 
+    file.write("\n\n") # Add empty lines. 
+
+    file.write("Species counts:\n\n") # Write a string to the file. 
+    file.write(iris_df["species_type"].value_counts().to_string()) # Write iris_df species counts to file. 
     file.write("\n\n") # Add empty lines. 
 
     file.write("Summary statistics of numerical variables:\n\n")
