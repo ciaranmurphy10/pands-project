@@ -62,6 +62,21 @@ We have four continuous variables in our data (sepal_length, sepal_width, petal_
 
 From this visual representation, we can confirm our earlier conclusion that the distributions of the sepal lengths and widths are more symmetrical than those of the petals. From looking the petal distributions, it's clear that there is some factor that is responsible for groupings of the data observations. Standard histograms treat all values the same, and while it is possible to add hues to represent multiple dimensions within the data, there are other charts that perform a similar analysis but allow for more effectively visualising multiple dimensions. 
 
+## KDE Plots
+
+KDE (Kernel Density Estimation) plots are analogous to histograms in that they represent the distribution of values in a data set, but their methods of representation are very different. A KDE plot visualises the continuous probability density curve of a variable, and since multiple curves can be more easily displayed overlapping on a single plot, we can separate variables into different dimensions and display their continuous probability density curves on one on one plot. In our case, we will examine four plots (one for each measurement type) and separate the plots into three dimensions (one for each species type). 
+
+<p align="center">
+  <img src = "./plots/kde_plots/petal_length_kde_plot.png" alt = "Petal Length" width="45%" />
+  <img src = "./plots/kde_plots/sepal_length_kde_plot.png" alt = "Sepal Length" width="45%" />
+</p>
+<p align="center">
+  <img src="./plots/kde_plots/petal_width_kde_plot.png" alt="Petal Width" width="45%" />
+  <img src="./plots/kde_plots/sepal_width_kde_plot.png" alt="Sepal Width" width="45%" />
+</p>
+
+From this view, we can clearly see how the distribution of lengths and widths is different depending on the species width. If we focus on petal_length, we can see how the Iris-setosa is responsible for the dense grouping of values in the 1-2cm range, and Iris-versicolor and Iris-virginica correspond with the two other peaks. Similar groups of density can be seen in the other measurements which were not as obvious with histograms. 
+
 # References
 
 ## General
