@@ -162,6 +162,7 @@ for i in range(0, len(numerical_vars)): # Cycle through a range the length of th
             custom_scatter(x_variable = a, y_variable = b, output_dir = iris_dir) # Run custom_scatter() on the current values of a and b, and then repeat the for loop again until all unique ordered pairs have been cycled through. 
 
 
+
 # We can use the same functional approach again to create KDE plots. 
 
 def custom_kde(variable, output_dir, hue = "species_type", palette = custom_palette):
