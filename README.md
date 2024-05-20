@@ -18,7 +18,20 @@ The script will look for the Iris dataset in a file called `iris.data` in the su
 
 You will need a modern version of Python installed on your machine to run this code. To install Python, you can download a copy of Python from [Python.org](https://www.python.org/) or download a more full-featured collection of Python-related programs from [Anaconda.com](https://www.anaconda.com/).
 
-# Overview
+# Code Overview
+
+The `analysis.py` script performs the following tasks:
+1. Creates the required subdirectories for the output files, if necessary.
+2. Reads in the Iris dataset. 
+3. Writes the first five rows of data along with some summary statistics to a text file.
+4. Creates a pair plot of numerical variables and outputs it as a `.png` file. 
+5. Creates a histogram for each numerical variable and outputs them as `.png` files. 
+6. Creates a scatter plot for each pair of numerical variables and outputs them as `.png` files. 
+7. Creates a KDE plot for each numerical variable and outputs them as `.png` files. 
+8. Creates a Pearson correlation matrix for numerical variables and outputs it as a `.md` file. 
+9. Creates Pearson correlation matrices for numerical variables broken out by species and outputs them as `.md` files.
+
+# Iris Dataset Overview
 
 The Iris dataset is a famous collection of data often used to demonstrate statistical and machine learning concepts. It contains the measurements of fifty samples of three species of Iris flower and was popularised by statistician and biologist Ronald Fischer through his work on linear discriminant analysis, although the data was originally collected by botanist Edgar Anderson in the Gaspé Peninsula. 
 
