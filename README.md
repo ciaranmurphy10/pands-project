@@ -6,7 +6,7 @@ This repository contains the final project for the Programming and Scripting (23
 
 # Instructions
 
-This project contains an executable Python file with will produce text and image files summarising and visualising the variables of the Iris dataset. 
+This project contains an executable Python file which will produce text and image files summarising and visualising the variables of the Iris dataset. 
 
 To run this file, navigate to the `pands-project` directory and run the following code: 
 
@@ -14,15 +14,15 @@ To run this file, navigate to the `pands-project` directory and run the followin
 python analysis.py
 ```
 
-You will need a modern version of Python installed on your machine to run this code.
+The script will look for the Iris dataset in a file called `iris.data` in the subdirectory `data`. It will create subdirectories called `summary` and `plots`, if they don't already exist, along with some further subdirectories for the output files. 
 
-To install Python, you can download a copy of Python from [Python.org](https://www.python.org/) or download a more full-featured collection of Python-related programs from [Anaconda.com](https://www.anaconda.com/).
+You will need a modern version of Python installed on your machine to run this code. To install Python, you can download a copy of Python from [Python.org](https://www.python.org/) or download a more full-featured collection of Python-related programs from [Anaconda.com](https://www.anaconda.com/).
 
 # Overview
 
-The Iris data set is a famous collection of data often used to demonstrate statistical and machine learning concepts. It contains the measurements of fifty samples of three species of Iris flower and was popularised by statistician and biologist Ronald Fischer through his work on linear discriminant analysis, although the data was originally collected by botanist Edgar Anderson in the Gaspé Peninsula. 
+The Iris dataset is a famous collection of data often used to demonstrate statistical and machine learning concepts. It contains the measurements of fifty samples of three species of Iris flower and was popularised by statistician and biologist Ronald Fischer through his work on linear discriminant analysis, although the data was originally collected by botanist Edgar Anderson in the Gaspé Peninsula. 
 
-The three species of flowers examined in the data set are:
+The three species of flowers examined in the dataset are:
 * Iris setosa 
 * Iris virginica 
 * Iris versicolor
@@ -35,7 +35,7 @@ The measurements collected are:
 
 # Summary of Variables
 
-The `summary/iris_summary.txt' contains a summary of the variables contained within the data set. From this, we can draw some initial conclusions. 
+The `summary/iris_summary.txt' contains a summary of the variables contained within the dataset. From this, we can draw some initial conclusions. 
 
 In general, the lengths of the sepal and petals are greater than their widths, with sepal and petal length means of 5.84cm and 3.76cm and width means of 3.05cm and 1.20cm respectively. Similarly, we can draw from this that sepals and generally longer than petals, although petals have higher standard deviations than sepals despite their shorter mean lengths, with sepal and petal length standard deviations of 0.83cm and 1.76cm and width standard deviations of 0.43cm and 0.76cm respectively.
 
@@ -43,7 +43,7 @@ Looking at the medians and modes, we can see that the sepal and petal lengths ha
 
 # Visual Analysis
 
-Charts provide a visual way of analysing a data set, and can provide insights that might otherwise be difficult to infer. There are a number of different charts that we can use to represent the variables in the Iris data set. The ones that we will examine are histograms, KDE plots, scatter plots, and a pair plot. 
+Charts provide a visual way of analysing a dataset, and can provide insights that might otherwise be difficult to infer. There are a number of different charts that we can use to represent the variables in the Iris dataset. The ones that we will examine are histograms, KDE plots, scatter plots, and a pair plot. 
 
 ## Histograms
 
@@ -64,7 +64,7 @@ From this visual representation, we can confirm our earlier conclusion that the 
 
 ## KDE Plots
 
-KDE (Kernel Density Estimation) plots are analogous to histograms in that they represent the distribution of values in a data set, but their methods of representation are very different. A KDE plot visualises the continuous probability density curve of a variable, and since multiple curves can be easily displayed overlapping on a single plot, we can separate variables into different dimensions and display their continuous probability density curves on one plot using colour to distinguish them. In our case, we will examine four plots (one for each measurement type) and separate the plots into three dimensions (one for each species type). 
+KDE (Kernel Density Estimation) plots are analogous to histograms in that they represent the distribution of values in a dataset, but their methods of representation are very different. A KDE plot visualises the continuous probability density curve of a variable, and since multiple curves can be easily displayed overlapping on a single plot, we can separate variables into different dimensions and display their continuous probability density curves on one plot using colour to distinguish them. In our case, we will examine four plots (one for each measurement type) and separate the plots into three dimensions (one for each species type). 
 
 <p align="center">
   <img src = "./plots/kde_plots/petal_length_kde_plot.png" alt = "Petal Length" width="45%" />
