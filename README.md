@@ -84,24 +84,24 @@ Scatter plots visualise the relationship between two numerical variables. Observ
 In our case, we will plot each unordered pair of variables. Since we have six pairs of unordered variables, we could display these plots on a 4x3 grid, similar to how we displayed 2x2 grids of histograms and KDE plots. 
 
 <p align="center">
-  <img src = "./plots/scatter_plots/petal_length_vs_petal_width_scatter_plot.png" alt = "Petal Length vs Petal Width" width="22%" />
-  <img src = "./plots/scatter_plots/petal_length_vs_sepal_length_scatter_plot.png" alt = "Petal Length vs Sepal Length" width="22%" />
-  <img src = "./plots/scatter_plots/petal_length_vs_sepal_width_scatter_plot.png" alt = "Petal Length vs Sepal Width" width="22%" />
+  <img src = "./plots/scatter_plots/petal_length_vs_petal_width_scatter_plot.png" alt = "Petal Length vs Petal Width" width="30%" />
+  <img src = "./plots/scatter_plots/petal_length_vs_sepal_length_scatter_plot.png" alt = "Petal Length vs Sepal Length" width="30%" />
+  <img src = "./plots/scatter_plots/petal_length_vs_sepal_width_scatter_plot.png" alt = "Petal Length vs Sepal Width" width="30%" />
 </p>
 <p align="center">
-  <img src = "./plots/scatter_plots/petal_width_vs_sepal_length_scatter_plot.png" alt = "Petal Width vs Sepal Length" width="22%" />
-  <img src = "./plots/scatter_plots/petal_width_vs_sepal_width_scatter_plot.png" alt = "Petal Width vs Sepal Width" width="22%" />
-  <img src = "./plots/scatter_plots/sepal_length_vs_petal_length_scatter_plot.png" alt = "Sepal Length vs Petal Length" width="22%" />
+  <img src = "./plots/scatter_plots/petal_width_vs_sepal_length_scatter_plot.png" alt = "Petal Width vs Sepal Length" width="30%" />
+  <img src = "./plots/scatter_plots/petal_width_vs_sepal_width_scatter_plot.png" alt = "Petal Width vs Sepal Width" width="30%" />
+  <img src = "./plots/scatter_plots/sepal_length_vs_petal_length_scatter_plot.png" alt = "Sepal Length vs Petal Length" width="30%" />
 </p>
 <p align="center">
-  <img src = "./plots/scatter_plots/sepal_length_vs_sepal_width_scatter_plot.png" alt = "Sepal Length vs Sepal Width" width="22%" />
-  <img src = "./plots/scatter_plots/sepal_width_vs_petal_length_scatter_plot.png" alt = "Sepal Width vs Petal Length" width="22%" />
-  <img src = "./plots/scatter_plots/sepal_width_vs_petal_width_scatter_plot.png" alt = "Sepal Width vs Petal Width" width="22%" />
+  <img src = "./plots/scatter_plots/sepal_length_vs_sepal_width_scatter_plot.png" alt = "Sepal Length vs Sepal Width" width="30%" />
+  <img src = "./plots/scatter_plots/sepal_width_vs_petal_length_scatter_plot.png" alt = "Sepal Width vs Petal Length" width="30%" />
+  <img src = "./plots/scatter_plots/sepal_width_vs_petal_width_scatter_plot.png" alt = "Sepal Width vs Petal Width" width="30%" />
 </p>
 <p align="center">
-  <img src = "./plots/scatter_plots/petal_width_vs_petal_length_scatter_plot.png" alt = "Petal Width vs Petal Length" width="22%" />
-  <img src = "./plots/scatter_plots/sepal_length_vs_petal_width_scatter_plot.png" alt = "Sepal Length vs Petal Width" width="22%" />
-  <img src = "./plots/scatter_plots/sepal_width_vs_sepal_length_scatter_plot.png" alt = "Sepal Width vs Sepal Length" width="22%" />
+  <img src = "./plots/scatter_plots/petal_width_vs_petal_length_scatter_plot.png" alt = "Petal Width vs Petal Length" width="30%" />
+  <img src = "./plots/scatter_plots/sepal_length_vs_petal_width_scatter_plot.png" alt = "Sepal Length vs Petal Width" width="30%" />
+  <img src = "./plots/scatter_plots/sepal_width_vs_sepal_length_scatter_plot.png" alt = "Sepal Width vs Sepal Length" width="30%" />
 </p>
 
 An alternative way to display groups of related scatter plots however is through a pair plot, which plots scatter plots of all pairs of variables on one graph along with their corresponding KDE plots. Each scatter plot and its inverse is displayed symmetrically across the top left to bottom right diagonal. 
