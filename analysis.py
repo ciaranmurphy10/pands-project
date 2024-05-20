@@ -22,7 +22,6 @@ for directory in required_subdirectories: # Cycle through each element in the li
     if not os.path.exists(directory): # If the directory doesn't exist, create the directory. 
         os.makedirs(directory)
         
-
 # Although our data file is in .data format, the underlying data is in .csv format. 
 # Use the read_csv() function from the pandas library to import our data into a pandas DataFrame. 
 iris_df = pd.read_csv(f"{iris_dir}\\data\\iris.data", names = ["sepal_length", "sepal_width", "petal_length", "petal_width", "species_type"])
@@ -57,7 +56,6 @@ with open(f"{iris_dir}\\summary\\iris_summary.txt", "w") as file:
     file.write("Data set modes:\n\n") # Write a string to the file.
     file.write(iris_df.mode(numeric_only=True).to_string()) # Write iris_df modes to file. 
     file.write("\n\n") # Add empty lines. 
-
 
 sns.pairplot(iris_df, hue = "species_type", palette = custom_palette) # Create a scatter plot matrix using Seaborn's pairplot function. 
 plt.savefig(f"{iris_dir}\\plots\\pair_plots\\iris_pair_plot.png") # Save the plot to a png file. 
@@ -160,8 +158,6 @@ for i in range(0, len(numerical_vars)): # Cycle through a range the length of th
         if not i == j: # Exclude a variable being paired with itself. 
             b = numerical_vars[j] # Assign the list value at the current index j to the variable a. 
             custom_scatter(x_variable = a, y_variable = b, output_dir = iris_dir) # Run custom_scatter() on the current values of a and b, and then repeat the for loop again until all unique ordered pairs have been cycled through. 
-
-
 
 # We can use the same functional approach again to create KDE plots. 
 
