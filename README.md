@@ -64,7 +64,7 @@ From this visual representation, we can confirm our earlier conclusion that the 
 
 ## KDE Plots
 
-KDE (Kernel Density Estimation) plots are analogous to histograms in that they represent the distribution of values in a data set, but their methods of representation are very different. A KDE plot visualises the continuous probability density curve of a variable, and since multiple curves can be more easily displayed overlapping on a single plot, we can separate variables into different dimensions and display their continuous probability density curves on one on one plot. In our case, we will examine four plots (one for each measurement type) and separate the plots into three dimensions (one for each species type). 
+KDE (Kernel Density Estimation) plots are analogous to histograms in that they represent the distribution of values in a data set, but their methods of representation are very different. A KDE plot visualises the continuous probability density curve of a variable, and since multiple curves can be more easily displayed overlapping on a single plot, we can separate variables into different dimensions and display their continuous probability density curves on one on one plot using colour to distinguish them. In our case, we will examine four plots (one for each measurement type) and separate the plots into three dimensions (one for each species type). 
 
 <p align="center">
   <img src = "./plots/kde_plots/petal_length_kde_plot.png" alt = "Petal Length" width="45%" />
@@ -75,42 +75,48 @@ KDE (Kernel Density Estimation) plots are analogous to histograms in that they r
   <img src="./plots/kde_plots/sepal_width_kde_plot.png" alt="Sepal Width" width="45%" />
 </p>
 
-From this view, we can clearly see how the distribution of lengths and widths is different depending on the species width. If we focus on petal_length, we can see how the Iris-setosa is responsible for the dense grouping of values in the 1-2cm range, and Iris-versicolor and Iris-virginica correspond with the two other peaks. Similar groups of density can be seen in the other measurements which were not as obvious with histograms. 
+From this view, we can clearly see how the distribution of lengths and widths is different depending on the species width. If we focus on petal_length, we can see how the Iris-setosa is responsible for the dense grouping of values in the 1-2cm range, and Iris-versicolor and Iris-virginica correspond with the two other peaks. Similar groups of density can be seen in the other measurements which were not as obvious with histograms. While histograms and KDE plots allow us to examine the distribution of individual variables, they don't tell us anything about the relationships between variables. We'll need other charts for that.  
 
 ## Scatter Plots & Pair Plots
 
 Scatter plots visualise the relationship between two numerical variables. Observations are plotted as points on a two dimensional cartesian plane, with one variable represented by the x-axis and another variable represented on the y-axis. A third, categorical variable, can be represented by the colour of each point. 
 
-In our case, we will plot each unordered pair of variables. Since we have six pairs of unordered variables, we could display these plots on a 4x3 grid, similar to how we displayed 2x2 grids of histograms and KDE plots. 
+In our case, we will plot each unordered pair of variables. Since we have six pairs of unordered variables, we could display these plots on an 8x2 grid, similar to how we displayed 2x2 grids of histograms and KDE plots. 
 
 <p align="center">
-  <img src = "./plots/scatter_plots/petal_length_vs_petal_width_scatter_plot.png" alt = "Petal Length vs Petal Width" width="30%" />
-  <img src = "./plots/scatter_plots/petal_length_vs_sepal_length_scatter_plot.png" alt = "Petal Length vs Sepal Length" width="30%" />
-  <img src = "./plots/scatter_plots/petal_length_vs_sepal_width_scatter_plot.png" alt = "Petal Length vs Sepal Width" width="30%" />
+  <img src = "./plots/scatter_plots/petal_length_vs_petal_width_scatter_plot.png" alt = "Petal Length vs Petal Width" width="45%" />
+  <img src = "./plots/scatter_plots/petal_length_vs_sepal_length_scatter_plot.png" alt = "Petal Length vs Sepal Length" width="45%" />
 </p>
 <p align="center">
-  <img src = "./plots/scatter_plots/petal_width_vs_sepal_length_scatter_plot.png" alt = "Petal Width vs Sepal Length" width="30%" />
-  <img src = "./plots/scatter_plots/petal_width_vs_sepal_width_scatter_plot.png" alt = "Petal Width vs Sepal Width" width="30%" />
-  <img src = "./plots/scatter_plots/sepal_length_vs_petal_length_scatter_plot.png" alt = "Sepal Length vs Petal Length" width="30%" />
+  <img src = "./plots/scatter_plots/petal_width_vs_sepal_length_scatter_plot.png" alt = "Petal Width vs Sepal Length" width="45%" />
+  <img src = "./plots/scatter_plots/petal_width_vs_sepal_width_scatter_plot.png" alt = "Petal Width vs Sepal Width" width="45%" />
 </p>
 <p align="center">
-  <img src = "./plots/scatter_plots/sepal_length_vs_sepal_width_scatter_plot.png" alt = "Sepal Length vs Sepal Width" width="30%" />
-  <img src = "./plots/scatter_plots/sepal_width_vs_petal_length_scatter_plot.png" alt = "Sepal Width vs Petal Length" width="30%" />
-  <img src = "./plots/scatter_plots/sepal_width_vs_petal_width_scatter_plot.png" alt = "Sepal Width vs Petal Width" width="30%" />
+  <img src = "./plots/scatter_plots/sepal_length_vs_sepal_width_scatter_plot.png" alt = "Sepal Length vs Sepal Width" width="45%" />
+  <img src = "./plots/scatter_plots/sepal_width_vs_petal_length_scatter_plot.png" alt = "Sepal Width vs Petal Length" width="45%" />
 </p>
 <p align="center">
-  <img src = "./plots/scatter_plots/petal_width_vs_petal_length_scatter_plot.png" alt = "Petal Width vs Petal Length" width="30%" />
-  <img src = "./plots/scatter_plots/sepal_length_vs_petal_width_scatter_plot.png" alt = "Sepal Length vs Petal Width" width="30%" />
-  <img src = "./plots/scatter_plots/sepal_width_vs_sepal_length_scatter_plot.png" alt = "Sepal Width vs Sepal Length" width="30%" />
+  <img src = "./plots/scatter_plots/petal_width_vs_petal_length_scatter_plot.png" alt = "Petal Width vs Petal Length" width="45%" />
+  <img src = "./plots/scatter_plots/sepal_length_vs_petal_width_scatter_plot.png" alt = "Sepal Length vs Petal Width" width="45%" />
+</p>
+<p align="center">
+  <img src = "./plots/scatter_plots/petal_length_vs_sepal_width_scatter_plot.png" alt = "Petal Length vs Sepal Width" width="45%" />
+  <img src = "./plots/scatter_plots/sepal_length_vs_petal_length_scatter_plot.png" alt = "Sepal Length vs Petal Length" width="45%" />
+</p>
+<p align="center">
+  <img src = "./plots/scatter_plots/sepal_width_vs_petal_width_scatter_plot.png" alt = "Sepal Width vs Petal Width" width="45%" />
+  <img src = "./plots/scatter_plots/sepal_width_vs_sepal_length_scatter_plot.png" alt = "Sepal Width vs Sepal Length" width="45%" />
 </p>
 
-An alternative way to display groups of related scatter plots however is through a pair plot, which plots scatter plots of all pairs of variables on one graph along with their corresponding KDE plots. Each scatter plot and its inverse is displayed symmetrically across the top left to bottom right diagonal. 
+An alternative way to display groups of related scatter plots however, is through a pair plot, which plots scatter plots of all pairs of variables on one graph along with their corresponding KDE plots. Each scatter plot and its inverse is displayed symmetrically across the top left to bottom right diagonal. 
 
 <p align="center">
   <img src = "./plots/pair_plots/iris_pair_plot.png" alt = "Pair Plot" width="90%" />
 </p>
 
+In this representation, we sacrifice some of the detail available with larger individual plots, such as the y-axis scale of the KDE plots or the ease of distinguishing some of the scatter plot points. What we gain however, is a birds-eye view of the density of our variables and the correlation between them, which can be extremely useful for spotting patterns and relationships.
 
+An interesting observation that can be inferred from this view is that as petal_length increases, so does sepal_length, petal_width, and to a lesser extent sepal_width, but only for Iris-versicolor and Iris-virginica. While Iris-setosa does have variation in some variables such as sepal_width and sepal_length, there appears to be no positive or negative correlation between sepal_length and any other variable for Iris-setosa. A similar pattern can be seen with petal_width. This corresponds with the large spikes in density that can be seen on the KDE plots for petal_length and petal_width.  
 
 # References
 
