@@ -201,3 +201,40 @@ def custom_kde(variable, output_dir, hue = "species_type", palette = custom_pale
 # Using a for loop and the custom_kde() function, create a KDE plot of each numerical variable. 
 for i in ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']:
     custom_kde(i, iris_dir)
+
+# To calculate a Pearson correlation matrix, we can use the pandas .corr() method.
+# This computes a correlation matrix from a DataFrame, with a default method of Pearson. 
+# First calculate a matrix without separating species.  
+iris_corr_matrix = iris_df[numerical_vars].corr()
+
+# Output it to a markdown file in the summary folder. 
+with open(f"{iris_dir}\\summary\\iris_corr_matrix.md", "w") as file:  
+    file.write(iris_corr_matrix.to_markdown()) # Use the .to_markdown() method to convert the DataFrame to a markdown string. 
+
+# To examine correlation between variables broken out into species, use .loc to filter based on species_type column. 
+# Drop the species_type column as we no longer need it. 
+iris_df_setosa = iris_df.loc[iris_df['species_type'] == 'Iris-setosa'].drop(columns = 'species_type')
+
+# Using list comprehension, add the setosa species suffix to all column names.
+iris_df_setosa.columns = [f"{column}_setosa" for column in iris_df_setosa.columns]
+
+# Calculate the correlation matrix for our new DataFrame. 
+iris_setosa_corr_matrix = iris_df_setosa.corr()
+
+# As before, output it to a markdown table. 
+with open(f"{iris_dir}\\summary\\iris_setosa_corr_matrix.md", "w") as file:  
+    file.write(iris_setosa_corr_matrix.to_markdown()) 
+
+# Perform the same steps for versicolor.
+iris_df_versicolor = iris_df.loc[iris_df['species_type'] == 'Iris-versicolor'].drop(columns = 'species_type')
+iris_df_versicolor.columns = [f"{column}_versicolor" for column in iris_df_versicolor.columns]
+iris_versicolor_corr_matrix = iris_df_versicolor.corr()
+with open(f"{iris_dir}\\summary\\iris_versicolor_corr_matrix.md", "w") as file:  
+    file.write(iris_versicolor_corr_matrix.to_markdown()) 
+
+# Perform the same steps for virginica.
+iris_df_virginica = iris_df.loc[iris_df['species_type'] == 'Iris-virginica'].drop(columns = 'species_type')
+iris_df_virginica.columns = [f"{column}_virginica" for column in iris_df_virginica.columns]
+iris_virginica_corr_matrix = iris_df_virginica.corr()
+with open(f"{iris_dir}\\summary\\iris_virginica_corr_matrix.md", "w") as file:  
+    file.write(iris_virginica_corr_matrix.to_markdown()) 

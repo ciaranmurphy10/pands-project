@@ -116,7 +116,70 @@ An alternative way to display groups of related scatter plots however, is throug
 
 In this representation, we sacrifice some of the detail available with larger individual plots, such as the y-axis scale of the KDE plots or the ease of distinguishing some of the scatter plot points. What we gain however, is a birds-eye view of the density of our variables and the correlation between them, which can be extremely useful for spotting patterns and relationships.
 
-An interesting observation that can be inferred from this view is that as petal_length increases, so does sepal_length, petal_width, and to a lesser extent sepal_width, but only for Iris-versicolor and Iris-virginica. While Iris-setosa does have variation in some variables such as sepal_width and sepal_length, there appears to be no positive or negative correlation between sepal_length and any other variable for Iris-setosa. A similar pattern can be seen with petal_width. This corresponds with the large spikes in density that can be seen on the KDE plots for petal_length and petal_width.  
+An interesting observation that can be inferred from this view is that as petal_length increases, so does sepal_length, petal_width, and to a lesser extent sepal_width, but only for Iris-versicolor and Iris-virginica. While Iris-setosa does have variation in some variables such as sepal_width and sepal_length, there appears to be little positive or negative correlation between sepal_length and any other variable for Iris-setosa.  This corresponds with the large spikes in density that can be seen on the KDE plot for petal_length. While correlation may be apparent from viewing these plots, to verify it we'll need to perform a statistical test. 
+
+# Correlation
+
+There are various statistical tests we can perform to measure correlation between two variales. One common way is to calculate the Pearson correlation coefficient, which measures the strength of the linear relationship between two variables. A Pearson correlation coefficient of 1 indicates a perfect linear relationship, -1 indicates a perfect negative relationship, and 0 indicates no correlation between the variables. We'll first examinie a correlation matrix which shows the correlation between variables regardless of species. 
+
+<center>
+
+|              |   sepal_length |   sepal_width |   petal_length |   petal_width |
+|:-------------|---------------:|--------------:|---------------:|--------------:|
+| sepal_length |       1        |     -0.109369 |       0.871754 |      0.817954 |
+| sepal_width  |      -0.109369 |      1        |      -0.420516 |     -0.356544 |
+| petal_length |       0.871754 |     -0.420516 |       1        |      0.962757 |
+| petal_width  |       0.817954 |     -0.356544 |       0.962757 |      1        |
+
+</center>
+
+This table analogeous to our pair plot above (excluding the species dimensionality), except that rather than inferring the correlation between two variables by how linear the relationship seems, we can see the correlation coefficient between the two variables.  A correlation coefficient of 0.96 between petal_width and petal_length for instance implies strong linearity, which corresponds with the visual representation in the scatter plot above. 
+
+To verify our earlier observation regarding the difference in correlation between petal_length and sepal_length, petal_length, and petal_width depending on species type, we'll need to examine the correlation matrices of each species. 
+
+### Iris-setosa
+
+<center>
+
+|                     |   sepal_length_setosa |   sepal_width_setosa |   petal_length_setosa |   petal_width_setosa |
+|:--------------------|----------------------:|---------------------:|----------------------:|---------------------:|
+| sepal_length_setosa |              1        |             0.74678  |              0.263874 |             0.279092 |
+| sepal_width_setosa  |              0.74678  |             1        |              0.176695 |             0.279973 |
+| petal_length_setosa |              0.263874 |             0.176695 |              1        |             0.306308 |
+| petal_width_setosa  |              0.279092 |             0.279973 |              0.306308 |             1        |
+
+</center>
+
+### Iris-versicolor
+
+<center>
+
+|                         |   sepal_length_versicolor |   sepal_width_versicolor |   petal_length_versicolor |   petal_width_versicolor |
+|:------------------------|--------------------------:|-------------------------:|--------------------------:|-------------------------:|
+| sepal_length_versicolor |                  1        |                 0.525911 |                  0.754049 |                 0.546461 |
+| sepal_width_versicolor  |                  0.525911 |                 1        |                  0.560522 |                 0.663999 |
+| petal_length_versicolor |                  0.754049 |                 0.560522 |                  1        |                 0.786668 |
+| petal_width_versicolor  |                  0.546461 |                 0.663999 |                  0.786668 |                 1        |
+
+</center>
+
+### Iris-virginica
+
+<center>
+
+|                        |   sepal_length_virginica |   sepal_width_virginica |   petal_length_virginica |   petal_width_virginica |
+|:-----------------------|-------------------------:|------------------------:|-------------------------:|------------------------:|
+| sepal_length_virginica |                 1        |                0.457228 |                 0.864225 |                0.281108 |
+| sepal_width_virginica  |                 0.457228 |                1        |                 0.401045 |                0.537728 |
+| petal_length_virginica |                 0.864225 |                0.401045 |                 1        |                0.322108 |
+| petal_width_virginica  |                 0.281108 |                0.537728 |                 0.322108 |                1        |
+
+</center>
+<br />
+
+We're presented with a lot of information here, but we can cherry pick the pieces we need. From the pair plot, it appeared that Iris-setosa petal_length had a weak linear relationship with the other variables. We can read from the Iris-setosa table that its petal_length has a Pearson correlation coefficient of 0.26, 0.18, and 0.31 with sepal_length, petal_length, petal_width respectively. These relatively low values confirm our earlier observations of weak correlation. 
+
+Iris-versicolor petal_length on the other hand, has correlation coefficients of 0.75, 0.56, and 0.79 with sepal_length, petal_length, petal_width, and Iris-virginica petal_length has correlation coefficients of 0.86, 0.40, and 0.32 with sepal_length, petal_length, petal_width respectively. These generally higher correlation coefficients indicate a stronger linear relationship between petal_length and the other variables for Iris-versicolor and Iris-virginica.
 
 # References
 
@@ -131,6 +194,7 @@ An interesting observation that can be inferred from this view is that as petal_
 - [https://en.wikipedia.org/wiki/Kernel_density_estimation](https://en.wikipedia.org/wiki/Kernel_density_estimation)
 - [https://en.wikipedia.org/wiki/Scatter_plot](https://en.wikipedia.org/wiki/Scatter_plot)
 - [https://www.analyticsvidhya.com/blog/2024/02/pair-plots-in-machine-learning/](https://www.analyticsvidhya.com/blog/2024/02/pair-plots-in-machine-learning/)
+-[https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/](https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/)
 
 ## Code
 
@@ -150,3 +214,10 @@ An interesting observation that can be inferred from this view is that as petal_
 - [https://www.geeksforgeeks.org/seaborn-kdeplot-a-comprehensive-guide/](https://www.geeksforgeeks.org/seaborn-kdeplot-a-comprehensive-guide/)
 - [https://seaborn.pydata.org/tutorial/color_palettes.html](https://seaborn.pydata.org/tutorial/color_palettes.html)
 - [https://seaborn.pydata.org/generated/seaborn.kdeplot.html](https://seaborn.pydata.org/generated/seaborn.kdeplot.html)
+-[https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html)
+-[https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.drop.html)
+-[https://www.geeksforgeeks.org/ways-to-filter-pandas-dataframe-by-column-values/](https://www.geeksforgeeks.org/ways-to-filter-pandas-dataframe-by-column-values/)
+-[https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_markdown.html](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_markdown.html)
+-[https://realpython.com/numpy-scipy-pandas-correlation-python/](https://realpython.com/numpy-scipy-pandas-correlation-python/)
+-[https://www.geeksforgeeks.org/exploring-correlation-in-python/](https://www.geeksforgeeks.org/exploring-correlation-in-python/)
+-[https://realpython.com/list-comprehension-python/](https://realpython.com/list-comprehension-python/)
