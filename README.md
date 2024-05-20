@@ -122,7 +122,7 @@ An interesting observation that can be inferred from this view is that as petal_
 
 There are various statistical tests we can perform to measure correlation between two variales. One common way is to calculate the Pearson correlation coefficient, which measures the strength of the linear relationship between two variables. A Pearson correlation coefficient of 1 indicates a perfect linear relationship, -1 indicates a perfect negative relationship, and 0 indicates no correlation between the variables. We'll first examinie a correlation matrix which shows the correlation between variables regardless of species. 
 
-<center>
+<div align="center">
 
 |              |   sepal_length |   sepal_width |   petal_length |   petal_width |
 |:-------------|---------------:|--------------:|---------------:|--------------:|
@@ -131,7 +131,7 @@ There are various statistical tests we can perform to measure correlation betwee
 | petal_length |       0.871754 |     -0.420516 |       1        |      0.962757 |
 | petal_width  |       0.817954 |     -0.356544 |       0.962757 |      1        |
 
-</center>
+</div>
 
 This table analogeous to our pair plot above (excluding the species dimensionality), except that rather than inferring the correlation between two variables by how linear the relationship seems, we can see the correlation coefficient between the two variables.  A correlation coefficient of 0.96 between petal_width and petal_length for instance implies strong linearity, which corresponds with the visual representation in the scatter plot above. 
 
@@ -139,7 +139,7 @@ To verify our earlier observation regarding the difference in correlation betwee
 
 ### Iris-setosa
 
-<center>
+<div align="center">
 
 |                     |   sepal_length_setosa |   sepal_width_setosa |   petal_length_setosa |   petal_width_setosa |
 |:--------------------|----------------------:|---------------------:|----------------------:|---------------------:|
@@ -148,11 +148,11 @@ To verify our earlier observation regarding the difference in correlation betwee
 | petal_length_setosa |              0.263874 |             0.176695 |              1        |             0.306308 |
 | petal_width_setosa  |              0.279092 |             0.279973 |              0.306308 |             1        |
 
-</center>
+</div>
 
 ### Iris-versicolor
 
-<center>
+<div align="center">
 
 |                         |   sepal_length_versicolor |   sepal_width_versicolor |   petal_length_versicolor |   petal_width_versicolor |
 |:------------------------|--------------------------:|-------------------------:|--------------------------:|-------------------------:|
@@ -161,11 +161,11 @@ To verify our earlier observation regarding the difference in correlation betwee
 | petal_length_versicolor |                  0.754049 |                 0.560522 |                  1        |                 0.786668 |
 | petal_width_versicolor  |                  0.546461 |                 0.663999 |                  0.786668 |                 1        |
 
-</center>
+</div>
 
 ### Iris-virginica
 
-<center>
+<div align="center">
 
 |                        |   sepal_length_virginica |   sepal_width_virginica |   petal_length_virginica |   petal_width_virginica |
 |:-----------------------|-------------------------:|------------------------:|-------------------------:|------------------------:|
@@ -174,12 +174,16 @@ To verify our earlier observation regarding the difference in correlation betwee
 | petal_length_virginica |                 0.864225 |                0.401045 |                 1        |                0.322108 |
 | petal_width_virginica  |                 0.281108 |                0.537728 |                 0.322108 |                1        |
 
-</center>
+</div>
 <br />
 
 We're presented with a lot of information here, but we can cherry pick the pieces we need. From the pair plot, it appeared that Iris-setosa petal_length had a weak linear relationship with the other variables. We can read from the Iris-setosa table that its petal_length has a Pearson correlation coefficient of 0.26, 0.18, and 0.31 with sepal_length, petal_length, petal_width respectively. These relatively low values confirm our earlier observations of weak correlation. 
 
 Iris-versicolor petal_length on the other hand, has correlation coefficients of 0.75, 0.56, and 0.79 with sepal_length, petal_length, petal_width, and Iris-virginica petal_length has correlation coefficients of 0.86, 0.40, and 0.32 with sepal_length, petal_length, petal_width respectively. These generally higher correlation coefficients indicate a stronger linear relationship between petal_length and the other variables for Iris-versicolor and Iris-virginica.
+
+# Conclusion
+
+In conclusion, we've used various statistical summaries, charts, and tests to investigate the Iris dataset and uncover some insights and relationships between the variables, such as the relative distribution symmetry of the sepal measurements vs the petal measurements, the effect that species type has on probability density, and the how the correlation of variables is dependent on species type. 
 
 # References
 
